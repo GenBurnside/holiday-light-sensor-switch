@@ -1,4 +1,5 @@
 const int sensorPin = 0;
+const int relayPin = 7;
 
 const int dark = 850;
 
@@ -7,6 +8,7 @@ int lightLevel;
 void setup()
 {
   Serial.begin(9600);
+  pinMode(relayPin, OUTPUT);
 }
 
 
@@ -18,9 +20,11 @@ void loop()
   if (lightLevel < dark) {    
     message = "Day... no lights :(";
     message = message + " | " + lightLevel;
+    digitalWrite(relayPin, LOW);
   } else {
     message = "Night... activate! :D";
     message = message + " | " + lightLevel;
+    digitalWrite(relayPin, HIGH);
   }
   
   Serial.println(message);
