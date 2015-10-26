@@ -3,6 +3,9 @@ const int relayPin = 7;
 
 const int dark = 850;
 
+const int checkTime = 5000;
+const int lightTime = 10000;
+
 int lightLevel;
 
 void setup()
@@ -25,8 +28,9 @@ void loop()
     message = "Night... activate! :D";
     message = message + " | " + lightLevel;
     digitalWrite(relayPin, HIGH);
+    delay(lightTime)
   }
   
   Serial.println(message);
-  delay(1000);
+  delay(checkTime);
 }
