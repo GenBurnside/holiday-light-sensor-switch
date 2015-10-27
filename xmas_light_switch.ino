@@ -11,7 +11,6 @@ int lightLevel;
 
 void setup()
 {
-  Serial.begin(9600);
   pinMode(relayPin, OUTPUT);
 }
 
@@ -20,20 +19,13 @@ void loop()
 {
   lightLevel = analogRead(sensorPin);
   
-  String message = "";
   if (lightLevel < dark) {    
-    message = "Day... no lights :(";
-    message = message + " | " + lightLevel;
     digitalWrite(relayPin, LOW);
     delay(checkTime);
   } else {
-    message = "Night... activate! :D";
-    message = message + " | " + lightLevel;
     digitalWrite(relayPin, HIGH);
     delay(lightTime);
     digitalWrite(relayPin, LOW);
     delay(restTime);
   }
-  
-  Serial.println(message);
 }
