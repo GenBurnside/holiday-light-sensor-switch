@@ -4,8 +4,8 @@ const int relayPin = 7;
 const int dark = 850;
 
 const int checkTime = 300000; //check every 5 minutes
-const int lightTime = 21600000; //light up for 6 hours
-const int restTime = 43200000; //sleep for 12 hours
+const long lightTime = 21600000; //light up for 6 hours
+const long restTime = 43200000; //sleep for 12 hours
 
 int lightLevel;
 
